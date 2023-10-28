@@ -1,3 +1,25 @@
+<!-- ////////////////////// php ///////////////////// -->
+
+<?php session_start(); 
+
+ ?>
+
+
+
+<?php
+
+if(!isset($_SESSION["id"])){
+  header("Location:../index.php");
+}
+
+?>
+
+
+
+
+
+
+<!-- /////////////////////////////// php close  -->
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -34,6 +56,7 @@
                     <li class="nav__item">
                         <a href="index.php" class="nav__link active-link">Home</a>
                     </li>
+                    
                     <li class="nav__item">
                         <a href="abdout.php" class="nav__link">About</a>
                     </li>
@@ -45,6 +68,9 @@
                     </li>
                     <li class="nav__item">
                         <a href="contact.php" class="nav__link">Contact Us</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../logout.php" class="nav__link active-link">logout</a>
                     </li>
                 </ul>
 
@@ -406,7 +432,7 @@
                                 <h3 class="contact__subtitle">Write us by mail</h3>
                                 <span class="contact__description">
                                     <i class="ri-mail-line contact__icon"></i>
-                                   <a href="https://mail.google.com/mail/" target="_blank" class="nav__link"> Nerdherd@email.com</a>
+                                   <a href="https://mail.google.com/mail/" target="_blank" class="nav__link"><?php echo $_SESSION["email"];?></a>
                                 </span>
                             </div>
                         </div>
@@ -415,8 +441,8 @@
 
                     <div class="contact__inputs">
                         <div class="contact__content">
-                            <input type="email" placeholder=" " class="contact__input" >
-                            <label for="" class="contact__label">Email</label>
+                            <input type="email" placeholder=" " class="contact__input" value="<?php echo $_SESSION["email"];?>" >
+                            <label for="" class="contact__label"  >Email</label>
                            </div>
                     
                         <div class="contact__content">
@@ -453,7 +479,7 @@
 
                 <div class="footer__subscribe">
                 <form action="" class="contact__form" id="contact-form" onsubmit="return validateForm1();">
-            <input type="email" placeholder="Enter your email" class="footer__input"  >
+            <input type="email" placeholder="Enter your email" class="footer__input" value="<?php echo $_SESSION["email"];?>">
 
                     <button class="button button--flex footer__button" style=" margin-left: 264px;" >
                         Subscribe

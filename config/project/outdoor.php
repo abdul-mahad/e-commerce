@@ -1,3 +1,25 @@
+<!-- ////////////////////// php ///////////////////// -->
+
+<?php session_start(); 
+
+ ?>
+
+
+
+<?php
+
+if(!isset($_SESSION["id"])){
+  header("Location:../index.php");
+}
+
+?>
+
+
+
+
+
+
+<!-- /////////////////////////////// php close  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,7 +145,7 @@
 
                 <div class="footer__subscribe">
                    <form action="">
-            <input type="email" placeholder="Enter your email" class="footer__input" required>
+            <input type="email" placeholder="Enter your email" class="footer__input" value="<?php echo $_SESSION["email"];?>">
 
                     <button class="button button--flex footer__button" style=" margin-left: 264px;" >
                         Subscribe

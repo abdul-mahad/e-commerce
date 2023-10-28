@@ -1,3 +1,26 @@
+<!-- ////////////////////// php ///////////////////// -->
+
+<?php session_start(); 
+
+ ?>
+
+
+
+<?php
+
+if(!isset($_SESSION["id"])){
+  header("Location:../index.php");
+}
+
+?>
+
+
+
+
+
+
+<!-- /////////////////////////////// php close  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +64,9 @@
                     </li>
                     <li class="nav__item">
                         <a href="contact.php" class="nav__link">Contact Us</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../logout.php" class="nav__link active-link">logout</a>
                     </li>
                 </ul>
 
@@ -187,7 +213,7 @@
 
                 <div class="footer__subscribe">
                 <form action="" class="contact__form" id="contact-form" onsubmit="return validateForm1();">
-            <input type="email" placeholder="" class="footer__input"  >
+            <input type="email" placeholder="" class="footer__input" value="<?php echo $_SESSION["email"];?>"  >
 
                     <button class="button button--flex footer__button" style=" margin-left: 264px;" >
                         Subscribe

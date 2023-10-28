@@ -1,3 +1,26 @@
+<!-- ////////////////////// php ///////////////////// -->
+
+<?php session_start(); 
+
+ ?>
+
+
+
+<?php
+
+if(!isset($_SESSION["id"])){
+  header("Location:../index.php");
+}
+
+?>
+
+
+
+
+
+
+<!-- /////////////////////////////// php close  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +71,7 @@
                     <div class="nav__close" id="nav-close">
                         <i class="ri-close-line"></i>
                     </div>
+                 
                 </div>
 
                 <div class="nav__btns">
@@ -78,7 +102,7 @@
                    <div class="address-group">
                        <i class="far fa-envelope fa-3x text-red"></i>
                        <h2 class="text-gray md-heading" style="color: black;">Email</h2>
-                       <p style="color: black;" > <a href="https://gmail.com/ " target="_blank " style="color: black;" >abdulmahad012@gmail.com</a> </p>
+                       <p style="color: black;" > <a href="https://gmail.com/ " target="_blank " style="color: black;" ><?php echo $_SESSION["email"];?></a> </p>
                    </div>
                    <div class="address-group">
                        <i class="fas fa-phone-square-alt fa-3x text-red"></i>
@@ -96,7 +120,7 @@
                   </div>
                   <div class="form-group">
                    <label for="email" style="color: black;">Email</label>
-                   <input type="email" class="email">
+                   <input type="email" class="email" value="<?php echo $_SESSION["email"];?>">
                   </div>
                   <div class="form-group">
                    <label for="phone" style="color: black;">Phone</label>
@@ -129,7 +153,7 @@
 
             <div class="footer__subscribe">
                 <form action="" class="contact__form" id="contact-form" onsubmit="return validateForm1();">
-            <input type="email" placeholder="Enter your email" class="footer__input"  >
+            <input type="email" placeholder="Enter your email" class="footer__input" value="<?php echo $_SESSION["email"];?>" >
 
                     <button class="button button--flex footer__button" style=" margin-left: 264px;" >
                         Subscribe

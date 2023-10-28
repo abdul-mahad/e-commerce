@@ -1,3 +1,25 @@
+<!-- ////////////////////// php ///////////////////// -->
+
+<?php session_start(); 
+
+ ?>
+
+
+
+<?php
+
+if(!isset($_SESSION["id"])){
+  header("Location:../index.php");
+}
+
+?>
+
+
+
+
+
+
+<!-- /////////////////////////////// php close  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +61,7 @@
                     <li class="nav__item">
                         <a href="contact.php" class="nav__link">Contact Us</a>
                     </li>
+                    
                 </ul>
 
                     <div class="nav__close" id="nav-close">
